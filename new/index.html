@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ROCKEAR TV | Ernesto Daniel Ocampo · Rockeart.produce</title>
+<meta name="description" content="ROCKEAR TV: rock, entrevistas, música en vivo y comunicación. Medio creado por Ernesto Daniel Ocampo y producido por Rockeart.produce.">
+<meta name="author" content="Ernesto Daniel Ocampo">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050505">
+<link rel="canonical" href="https://ernestoocampo.github.io/ROCKEAR_TV/new/">
+<meta property="og:title" content="ROCKEAR TV | Ernesto Daniel Ocampo · Rockeart.produce">
+<meta property="og:description" content="Rock, entrevistas, música en vivo y comunicación. Creado por Ernesto Daniel Ocampo, producido por Rockeart.produce.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://ernestoocampo.github.io/ROCKEAR_TV/new/">
+<meta property="og:image" content="https://ernestoocampo.github.io/ROCKEAR_TV/new/assets/og-rockear-tv.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050505'/><path d='M56 12 L30 56 H46 L40 90 L70 44 H54 Z' fill='%23e0201b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<script>document.documentElement.className+=" js"</script>
+<style>
+:root{
+  --bg:#050505;
+  --surface:#0c0c0c;
+  --surface-2:#121212;
+  --line:rgba(236,231,220,.11);
+  --line-2:rgba(236,231,220,.2);
+  --cream:#ece7dc;
+  --muted:#8d8880;
+  --red:#e0201b;
+  --red-2:#ff3b30;
+  --display:'Anton',Impact,'Arial Black',sans-serif;
+  --cond:'Oswald',Arial,sans-serif;
+  --type:'Special Elite','Courier New',monospace;
+  --max:1240px;
+  --ease:cubic-bezier(.22,.68,.28,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background-color:var(--bg);color:var(--cream);font-family:var(--cond);font-weight:400;
+  font-size:17px;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:#fff}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding-inline:24px}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.005em}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ===== barra de progreso ===== */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:url("assets/marco/grunge.webp") repeat;background-size:760px auto;mix-blend-mode:soft-light}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:92;background:var(--red);
+  box-shadow:0 0 12px rgba(224,32,27,.8)}
+
+/* ===== cursor ===== */
+#glow{position:fixed;top:0;left:0;width:380px;height:380px;margin:-190px 0 0 -190px;z-index:0;
+  pointer-events:none;opacity:0;transition:opacity .5s;
+  background:radial-gradient(circle,rgba(224,32,27,.12),transparent 62%)}
+
+/* ===== header ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:80;transition:background .35s,border-color .35s,padding .35s;
+  border-bottom:1px solid transparent}
+header.on{background:rgba(5,5,5,.86);backdrop-filter:blur(14px) saturate(150%);border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:80px;transition:min-height .35s}
+header.on .bar{min-height:66px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:46px;height:46px;transition:transform .4s var(--ease)}
+.brand:hover img{transform:scale(1.08) rotate(-4deg)}
+.brand b{display:block;font-family:var(--display);font-size:19px;line-height:1;letter-spacing:.01em}
+.brand i{display:block;font-style:normal;font-family:var(--cond);font-weight:500;font-size:9px;
+  letter-spacing:.34em;color:var(--red);text-transform:uppercase;margin-top:3px}
+nav.main{display:flex;gap:30px;align-items:center}
+nav.main a{position:relative;font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);padding:6px 0;transition:color .25s}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--red);
+  transition:right .35s var(--ease)}
+nav.main a:hover,nav.main a.act{color:var(--cream)}
+nav.main a:hover::after,nav.main a.act::after{right:0}
+.live{display:inline-flex;align-items:center;gap:9px;font-family:var(--cond);font-weight:600;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;padding:11px 18px;background:var(--red);color:#fff;
+  overflow:hidden;position:relative;transition:box-shadow .3s}
+.live:hover{box-shadow:0 0 28px rgba(224,32,27,.55)}
+.live .d{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.3s steps(1) infinite}
+@keyframes blink{0%,55%{opacity:1}56%,100%{opacity:.2}}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line-2);background:transparent;
+  cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:20px;height:1.5px;background:var(--cream);margin:4px auto;transition:.3s var(--ease)}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+
+/* ===== hero ===== */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:112px 0 120px;overflow:hidden;isolation:isolate}
+.hero .aura{position:absolute;left:50%;top:34%;width:min(1100px,120vw);aspect-ratio:1;transform:translate(-50%,-50%);
+  z-index:-2;background:radial-gradient(circle,rgba(224,32,27,.17),rgba(224,32,27,.05) 42%,transparent 66%);
+  animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.12);opacity:1}}
+.hero .grid-lines{position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.5;
+  background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/ calc(100%/6) 100%;
+  mask-image:linear-gradient(180deg,transparent,#000 22%,#000 72%,transparent)}
+.hero-in{text-align:center;position:relative}
+.emblem{width:min(250px,44vw);margin:0 auto 22px;filter:drop-shadow(0 18px 50px rgba(224,32,27,.3))}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--cond);font-weight:500;font-size:11.5px;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:var(--line-2)}
+h1{font-size:clamp(42px,9.6vw,124px);line-height:.86;letter-spacing:-.012em}
+h1 .ln{display:block;overflow:hidden;padding-top:.12em;margin-top:-.12em}
+h1 .ln>span{display:block}
+.js h1 .ln>span{transform:translateY(105%)}
+.js.ready h1 .ln>span{transform:none;transition:transform 1.05s var(--ease)}
+.js.ready h1 .ln:nth-child(2)>span{transition-delay:.1s}
+h1 em{font-style:normal;color:var(--red);text-shadow:0 0 44px rgba(224,32,27,.5)}
+.sub{max-width:600px;margin:24px auto 0;font-family:var(--type);font-size:16px;line-height:1.85;color:var(--muted)}
+.js .sub,.js .cta{opacity:0}
+.js.ready .sub,.js.ready .cta{opacity:1;transition:opacity 1s var(--ease) .35s}
+.js.ready .cta{transition-delay:.5s}
+.cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:11px;font-family:var(--cond);font-weight:600;
+  font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:17px 32px;overflow:hidden;
+  border:1px solid var(--line-2);color:var(--cream);transition:color .3s,border-color .3s}
+.btn span{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;background:var(--cream);transform:scaleY(0);transform-origin:bottom;
+  transition:transform .4s var(--ease)}
+.btn:hover{color:#050505;border-color:var(--cream)}
+.btn:hover::before{transform:scaleY(1)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red::before{background:#fff}
+.btn.red:hover{color:var(--red);border-color:#fff}
+.eq{position:absolute;left:0;right:0;bottom:0;height:70px;z-index:-1;display:flex;align-items:flex-end;
+  justify-content:center;gap:9px;padding:0 24px;opacity:.22;
+  mask-image:linear-gradient(180deg,transparent,#000 78%),linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent);
+  -webkit-mask-composite:source-in;mask-composite:intersect}
+.eq i{width:2px;flex:none;background:var(--red);height:10%;animation:bounce 3.4s ease-in-out infinite}
+.scroll{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:10px;font-family:var(--cond);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted);z-index:2}
+.scroll::after{content:"";width:1px;height:44px;background:linear-gradient(180deg,var(--line-2),transparent);
+  animation:drop 1.9s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
+@keyframes bounce{0%,100%{height:8%}50%{height:var(--h,40%)}}
+
+/* ===== ticker ===== */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:16px 0;background:var(--surface)}
+.ticker-t{display:flex;width:max-content;animation:slide 34s linear infinite}
+.ticker:hover .ticker-t{animation-play-state:paused}
+.ticker b{display:flex;align-items:center;gap:26px;padding:0 26px;font-family:var(--display);font-weight:400;
+  font-size:clamp(16px,2vw,22px);text-transform:uppercase;letter-spacing:.02em;color:var(--cream);white-space:nowrap}
+.ticker b::after{content:"";width:6px;height:6px;background:var(--red);transform:rotate(45deg)}
+.ticker b:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--line-2)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ===== secciones ===== */
+section{padding:clamp(80px,11vw,150px) 0;position:relative}
+.head{display:grid;grid-template-columns:auto 1fr;gap:0 32px;align-items:start;margin-bottom:clamp(40px,6vw,72px)}
+.num{font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.3em;color:var(--red);padding-top:10px}
+.head h2{font-size:clamp(38px,7.4vw,92px);line-height:.92}
+.head h2 em{font-style:normal;color:var(--red)}
+.head h2 .out{color:transparent;-webkit-text-stroke:1.5px var(--line-2)}
+.lead{max-width:560px;margin:22px 0 0;font-family:var(--type);font-size:15px;line-height:1.9;color:var(--muted)}
+.lead strong{color:var(--cream);font-weight:400}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.cel{position:relative;background:var(--surface);padding:clamp(28px,3.4vw,44px);overflow:hidden;
+  transition:background .4s var(--ease);min-height:270px;display:flex;flex-direction:column;justify-content:flex-end}
+.cel:hover{background:var(--surface-2)}
+.cel .k{position:absolute;top:26px;left:clamp(28px,3.4vw,44px);font-family:var(--cond);font-weight:500;
+  font-size:11px;letter-spacing:.26em;color:var(--red);opacity:.9}
+.cel h3{font-size:clamp(23px,2.5vw,31px);line-height:1;margin-bottom:14px;transition:transform .45s var(--ease)}
+.cel:hover h3{transform:translateX(6px)}
+.cel p{margin:0;font-family:var(--type);font-size:13.5px;line-height:1.85;color:var(--muted)}
+.cel::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);
+  transition:width .55s var(--ease)}
+.cel:hover::after{width:100%}
+.cel.big{grid-column:span 2}
+.cel.big h3{font-size:clamp(28px,3.6vw,46px)}
+
+/* redes */
+.nets{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line)}
+.net{position:relative;background:var(--surface);padding:clamp(26px,3vw,38px);overflow:hidden;
+  display:flex;flex-direction:column;gap:18px;transition:background .4s}
+.net svg{width:30px;height:30px;fill:var(--cream);transition:fill .35s,transform .45s var(--ease)}
+.net b{font-family:var(--display);font-weight:400;font-size:21px;text-transform:uppercase;line-height:1}
+.net small{font-family:var(--type);font-size:12.5px;color:var(--muted);margin-top:-12px}
+.net .go{margin-top:auto;font-family:var(--cond);font-weight:500;font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;transition:color .3s,gap .3s}
+.net::before{content:"";position:absolute;inset:0;background:var(--c,var(--red));opacity:0;transition:opacity .4s}
+.net:hover::before{opacity:.09}
+.net:hover svg{fill:var(--c,var(--red));transform:translateY(-4px)}
+.net:hover .go{color:var(--cream);gap:14px}
+.net::after{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:var(--c,var(--red));
+  transition:width .5s var(--ease)}
+.net:hover::after{width:100%}
+
+/* produce */
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,70px);align-items:center}
+.showcase{position:relative;padding:clamp(26px,4vw,52px);background:var(--surface);border:1px solid var(--line);
+  display:grid;place-items:center;overflow:hidden}
+.showcase::before{content:"";position:absolute;width:120%;aspect-ratio:1;
+  background:radial-gradient(circle,rgba(232,180,39,.16),transparent 62%);animation:breathe 9s ease-in-out infinite}
+.showcase img{position:relative;width:100%;max-width:400px;transition:transform .6s var(--ease)}
+.showcase:hover img{transform:scale(1.04)}
+.marks{list-style:none;padding:0;margin:0 0 34px}
+.marks li{position:relative;padding:16px 0 16px 34px;border-bottom:1px solid var(--line);
+  font-family:var(--type);font-size:14.5px;line-height:1.75;color:var(--muted);transition:color .3s,padding .35s}
+.marks li:hover{color:var(--cream);padding-left:40px}
+.marks li::before{content:"";position:absolute;left:2px;top:24px;width:14px;height:1px;background:var(--red)}
+.marks strong{color:var(--cream);font-weight:400}
+
+/* fechas */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:center;padding:30px 4px;
+  border-bottom:1px solid var(--line);position:relative;transition:padding .4s var(--ease)}
+.row::before{content:"";position:absolute;inset:0 -24px;background:var(--surface);opacity:0;transition:opacity .35s;z-index:-1}
+.row:hover{padding-left:24px}
+.row:hover::before{opacity:1}
+.row .when{font-family:var(--display);font-size:19px;color:var(--red);letter-spacing:.02em}
+.row .what{font-family:var(--display);font-size:clamp(20px,2.4vw,30px);line-height:1.05}
+.row .where{display:block;font-family:var(--type);font-size:13px;color:var(--muted);margin-top:7px;line-height:1.7}
+.row .tag{font-family:var(--cond);font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line-2);padding:9px 15px;white-space:nowrap}
+.notice{margin-top:56px;text-align:center}
+.notice b{display:block;font-family:var(--display);font-size:clamp(30px,5.6vw,66px);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--line-2);text-transform:uppercase}
+.notice p{font-family:var(--type);font-size:14.5px;color:var(--muted);max-width:440px;margin:16px auto 28px}
+
+/* libro */
+.book{display:grid;grid-template-columns:280px 1fr;gap:clamp(36px,5vw,68px);align-items:center}
+.cover{position:relative;aspect-ratio:2/3;background:linear-gradient(155deg,#161616,#090909);
+  border:1px solid var(--line);display:grid;place-content:center;text-align:center;padding:32px 24px;
+  box-shadow:0 30px 70px rgba(0,0,0,.8);transition:transform .6s var(--ease)}
+.cover:hover{transform:translateY(-8px)}
+.cover::after{content:"";position:absolute;inset:12px;border:1px solid var(--line)}
+.cover .a{font-family:var(--cond);font-weight:500;font-size:10px;letter-spacing:.3em;color:var(--red);text-transform:uppercase}
+.cover .t{display:block;margin:20px 0;font-family:var(--display);font-size:33px;line-height:1;text-transform:uppercase}
+.cover .g{font-family:var(--type);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+blockquote{margin:0 0 26px;font-family:var(--display);font-size:clamp(23px,3.5vw,42px);line-height:1.08;
+  text-transform:uppercase;position:relative;padding-left:30px}
+blockquote::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--red)}
+.book p{font-family:var(--type);font-size:14.5px;line-height:1.9;color:var(--muted);margin:0 0 14px}
+.book p strong{color:var(--cream);font-weight:400}
+
+/* creador */
+.creator{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,4.5vw,64px);align-items:center}
+.shot{position:relative;isolation:isolate}
+.shot::before{content:"";position:absolute;left:8%;right:8%;top:12%;bottom:4%;z-index:-1;
+  background:radial-gradient(ellipse at 50% 50%,rgba(224,32,27,.2),transparent 66%);filter:blur(14px)}
+.shot img{width:100%;
+  -webkit-mask-image:radial-gradient(ellipse 82% 76% at 50% 44%,#000 52%,transparent 88%);
+  mask-image:radial-gradient(ellipse 82% 76% at 50% 44%,#000 52%,transparent 88%)}
+.bio .role{display:inline-flex;align-items:center;gap:10px;font-family:var(--cond);font-weight:500;font-size:11px;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.bio .role::before{content:"";width:22px;height:1px;background:var(--red)}
+.bio h3{font-size:clamp(30px,4.4vw,58px);line-height:.94}
+.bio p{font-family:var(--type);font-size:14.5px;line-height:2;color:var(--muted);margin:22px 0 0;max-width:520px}
+.bio p strong{color:var(--cream);font-weight:400}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);margin-top:36px}
+.who{background:var(--surface);padding:24px 26px;transition:background .4s;position:relative}
+.who:hover{background:var(--surface-2)}
+.who b{display:block;font-family:var(--display);font-weight:400;font-size:17px;text-transform:uppercase;line-height:1.1}
+.who span{display:block;font-family:var(--type);font-size:12.5px;line-height:1.8;color:var(--muted);margin-top:9px}
+.who::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .5s var(--ease)}
+.who:hover::after{width:100%}
+
+/* contacto */
+.contact{text-align:center;position:relative;padding:clamp(56px,7vw,100px) clamp(24px,4vw,60px);
+  border:1px solid var(--line);background:
+    radial-gradient(ellipse at 50% 0%,rgba(224,32,27,.12),transparent 62%),var(--surface)}
+.contact h2{font-size:clamp(32px,5.6vw,68px);line-height:.95}
+.contact h2 em{font-style:normal;color:var(--red)}
+.contact .lead{margin:20px auto 0}
+.ways{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);margin-top:44px;text-align:left}
+.way{background:var(--surface-2);padding:26px 30px;display:flex;flex-direction:column;gap:4px;transition:background .35s}
+.way:hover{background:#191919}
+.way span{font-family:var(--cond);font-weight:500;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+.way b{font-family:var(--cond);font-weight:500;font-size:clamp(15px,2vw,21px);letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.way b::after{content:"↗";color:var(--muted);transition:transform .35s var(--ease),color .35s}
+.way:hover b::after{transform:translate(4px,-4px);color:var(--red)}
+
+/* legal */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:24px 2px;font-family:var(--cond);font-weight:500;font-size:14px;
+  letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:18px;
+  transition:color .3s}
+summary:hover{color:var(--red)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:11px;height:11px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg) translate(-3px,-3px);transition:transform .35s var(--ease);flex:none}
+details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+details .in{padding:0 2px 26px;font-family:var(--type);font-size:13.5px;line-height:2;color:var(--muted);max-width:860px}
+details .in strong{color:var(--cream);font-weight:400}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:clamp(60px,7vw,90px) 0 0;background:var(--surface);position:relative;overflow:hidden}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:40px}
+.fgrid h4{font-family:var(--cond);font-weight:500;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--red);margin:0 0 18px}
+.fgrid a.fl{display:block;font-family:var(--cond);font-weight:400;font-size:14.5px;color:var(--muted);
+  padding:5px 0;transition:color .25s,transform .3s var(--ease)}
+.fgrid a.fl:hover{color:var(--cream);transform:translateX(5px)}
+.fbrand{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.fbrand img{width:52px;height:52px}
+.fbrand b{font-family:var(--display);font-weight:400;font-size:19px;text-transform:uppercase;line-height:1}
+.fgrid p{font-family:var(--type);font-size:13px;line-height:1.9;color:var(--muted);margin:0;max-width:300px}
+.fmark{margin-top:clamp(50px,6vw,80px);text-align:center;line-height:.8;
+  font-family:var(--display);font-size:clamp(52px,15.5vw,220px);color:transparent;
+  -webkit-text-stroke:1px rgba(236,231,220,.13);text-transform:uppercase;user-select:none;
+  transform:translateY(14%)}
+.copy{border-top:1px solid var(--line);margin-top:-2%;padding:24px 0;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-family:var(--cond);font-weight:400;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);position:relative;background:var(--surface)}
+
+#top{position:fixed;right:24px;bottom:24px;z-index:88;width:48px;height:48px;background:var(--red);border:0;
+  color:#fff;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;
+  transition:opacity .3s,box-shadow .3s,transform .3s var(--ease)}
+#top.show{opacity:1;pointer-events:auto}
+#top:hover{box-shadow:0 0 26px rgba(224,32,27,.6);transform:translateY(-3px)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}
+.line{position:relative;overflow:hidden;padding-top:.14em;margin-top:-.14em}
+.line>*{display:block;transform:translateY(102%);transition:transform 1s var(--ease)}
+.line.in>*{transform:none}
+
+@media (max-width:1020px){
+  .bento,.nets{grid-template-columns:1fr 1fr}
+  .cel.big{grid-column:span 2}
+  .split,.book,.creator{grid-template-columns:1fr;gap:30px}
+  .shot{max-width:420px;margin:0 auto}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .burger{display:grid}
+  nav.main{position:fixed;inset:0 0 auto;padding:96px 24px 34px;flex-direction:column;gap:0;
+    background:rgba(5,5,5,.98);backdrop-filter:blur(16px);transform:translateY(-101%);
+    transition:transform .5s var(--ease);z-index:-1}
+  nav.main.open{transform:none}
+  nav.main a{width:100%;padding:17px 0;border-bottom:1px solid var(--line);font-size:16px;letter-spacing:.14em}
+  .bento,.nets,.duo,.ways{grid-template-columns:1fr}
+  .creator{grid-template-columns:1fr;gap:8px}
+  .shot{max-width:340px;margin:0 auto}
+  .cel.big{grid-column:auto}
+  .head{grid-template-columns:1fr;gap:14px}
+  .num{padding-top:0}
+  .row{grid-template-columns:1fr;gap:10px;padding:24px 4px}
+  .row .tag{justify-self:start}
+  .book{justify-items:center;text-align:center}
+  .cover{width:230px}
+  blockquote{padding-left:0;padding-top:22px}
+  blockquote::before{left:0;top:0;bottom:auto;width:44px;height:2px}
+  .fgrid{grid-template-columns:1fr;gap:34px}
+  .hero{padding:110px 0 120px}
+  .eq{height:52px;gap:7px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}.line>*{transform:none}
+  .js h1 .ln>span{transform:none}.js .sub,.js .cta{opacity:1}
+}
+
+/* ===== marco de afiche: esquinas unicas + bordes repetibles ===== */
+:root{
+  --corner:clamp(120px,17vw,250px);   /* lado de las esquinas (decoracion unica) */
+  --edge-x:clamp(11px,1.6vw,21px);    /* alto de las tiras superior e inferior */
+  --edge-y:clamp(4px,.55vw,7px);      /* ancho de las tiras laterales */
+  --overlap:.58;                      /* cuanto entra la tira por debajo de la esquina */
+  --frame-in:calc(var(--corner) * var(--overlap));
+}
+.page-frame{position:fixed;inset:0;z-index:85;pointer-events:none;contain:strict}
+.page-frame i{position:absolute;display:block;background-repeat:no-repeat}
+/* esquinas: nunca se repiten ni se deforman */
+.page-frame .c{width:var(--corner);height:var(--corner);background-size:contain;z-index:2}
+.page-frame .tl{top:0;left:0;background-image:url("assets/marco/corner-tl.webp");background-position:left top}
+.page-frame .tr{top:0;right:0;background-image:url("assets/marco/corner-tr.webp");background-position:right top}
+.page-frame .bl{bottom:0;left:0;background-image:url("assets/marco/corner-bl.webp");background-position:left bottom}
+.page-frame .br{bottom:0;right:0;background-image:url("assets/marco/corner-br.webp");background-position:right bottom}
+/* tiras: se repiten en un solo eje, con la altura/ancho fijos para no estirarlas */
+.page-frame .ex{left:var(--frame-in);right:var(--frame-in);height:var(--edge-x);
+  background-repeat:repeat-x;background-size:auto 100%;z-index:1}
+.page-frame .et{top:0;background-image:url("assets/marco/edge-top.webp");background-position:left top}
+.page-frame .eb{bottom:0;background-image:url("assets/marco/edge-bottom.webp");background-position:left bottom}
+.page-frame .ey{top:var(--frame-in);bottom:var(--frame-in);width:var(--edge-y);
+  background-repeat:repeat-y;background-size:100% auto;z-index:1}
+.page-frame .el{left:0;background-image:url("assets/marco/edge-left.webp");background-position:left top}
+.page-frame .er{right:0;background-image:url("assets/marco/edge-right.webp");background-position:right top}
+@media (max-width:760px){
+  :root{--overlap:.52}
+}
+</style>
+</head>
+<body>
+<div class="page-frame" aria-hidden="true">
+  <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+  <i class="ex et"></i><i class="ex eb"></i><i class="ey el"></i><i class="ey er"></i>
+</div>
+
+<div id="bar"></div>
+<div id="glow" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="ROCKEAR TV — inicio">
+      <img src="assets/emblema-rockear-tv-sm.webp" alt="" width="420" height="420">
+      <span><b>ROCKEAR TV</b><i>Rockeart.produce</i></span>
+    </a>
+    <nav class="main" id="nav">
+      <a href="#medio">El medio</a>
+      <a href="#medios">Medios</a>
+      <a href="#produce">Produce</a>
+      <a href="#fechas">Fechas</a>
+      <a href="#libro">Libro</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a class="live" href="https://youtube.com/@rockear_tv" target="_blank" rel="noopener">
+        <i class="d"></i>YouTube</a>
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <i class="aura" aria-hidden="true"></i>
+  <i class="grid-lines" aria-hidden="true"></i>
+  <div class="eq" id="eq" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <img class="emblem" src="assets/emblema-rockear-tv.webp" alt="ROCKEAR TV" width="620" height="620" fetchpriority="high">
+    <div class="eyebrow">Ernesto Daniel Ocampo · Rockeart.produce</div>
+    <h1>
+      <span class="ln"><span>El rock</span></span>
+      <span class="ln"><span><em>se cuenta acá</em></span></span>
+    </h1>
+    <p class="sub">Entrevistas, música en vivo y producciones. Un medio hecho por los que viven el rock todos los días, para los que lo viven igual.</p>
+    <div class="cta">
+      <a class="btn red" href="https://youtube.com/@rockear_tv" target="_blank" rel="noopener"><span>▶ Ver el canal</span></a>
+      <a class="btn" href="#medios"><span>Todos nuestros medios</span></a>
+    </div>
+  </div>
+  <div class="scroll" aria-hidden="true">Scroll</div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-t">
+    <b>Rock</b><b>Entrevistas</b><b>Música en vivo</b><b>Producciones</b><b>Rockear TV</b><b>Rockeart.produce</b>
+    <b>Rock</b><b>Entrevistas</b><b>Música en vivo</b><b>Producciones</b><b>Rockear TV</b><b>Rockeart.produce</b>
+  </div>
+</div>
+
+<section id="medio">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">01 —</div>
+      <div>
+        <h2 class="line"><span>Rockear <em>TV</em></span></h2>
+        <p class="lead rv d1">Medio de comunicación creado por <strong>Ernesto Daniel Ocampo</strong> y producido por <strong>Rockeart.produce</strong>. Contenido original sobre rock, artistas y la escena que los sostiene.</p>
+      </div>
+    </div>
+    <div class="bento rv d1">
+      <article class="cel big"><span class="k">Entrevistas</span><h3>Historias del rock</h3>
+        <p>Artistas, bandas y protagonistas con historias para contar. Charlas sin filtro, de las que no se dan en cualquier lado.</p></article>
+      <article class="cel"><span class="k">En vivo</span><h3>Música<br>en vivo</h3>
+        <p>Novedades y encuentros con músicos, arriba y abajo del escenario.</p></article>
+      <article class="cel"><span class="k">Programas</span><h3>Contenido original</h3>
+        <p>Producciones propias, emisión tras emisión.</p></article>
+      <article class="cel big"><span class="k">Comunidad</span><h3>La escena, de primera mano</h3>
+        <p>Lo que pasa en la escena contado por quienes la hacen. Seguinos para no perderte ninguna emisión.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="medios">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">02 —</div>
+      <div>
+        <h2 class="line"><span>Nuestros <span class="out">medios</span></span></h2>
+        <p class="lead rv d1">Todos los canales oficiales de ROCKEAR TV, reunidos en un solo lugar.</p>
+      </div>
+    </div>
+    <div class="nets rv d1">
+      <a class="net" style="--c:#ff0033" href="https://youtube.com/@rockear_tv" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+        <b>YouTube</b><small>@rockear_tv</small><span class="go">Suscribirse →</span></a>
+      <a class="net" style="--c:#25f4ee" href="https://www.tiktok.com/@rockear_tv" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.8a5 5 0 0 1-3-2.8V2h-3.2v13c0 1.4-1.1 2.5-2.5 2.5S5.4 16.4 5.4 15s1.1-2.5 2.5-2.5c.3 0 .5 0 .8.1V9.3a5.9 5.9 0 0 0-.8-.1A5.8 5.8 0 1 0 13.7 15V8.6a8.2 8.2 0 0 0 4.8 1.5V6.9c-.7 0-1.3-.1-1.9-.4Z"/></svg>
+        <b>TikTok</b><small>@rockear_tv</small><span class="go">Seguir →</span></a>
+      <a class="net" style="--c:#e1306c" href="https://www.instagram.com/rockear_tv/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9a3.7 3.7 0 0 1-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.8-.1Zm0 3.8A6 6 0 1 0 18 12a6 6 0 0 0-6-6Zm0 9.9A3.9 3.9 0 1 1 15.9 12 3.9 3.9 0 0 1 12 15.9Zm7.6-10.2a1.4 1.4 0 1 1-1.4-1.4 1.4 1.4 0 0 1 1.4 1.4Z"/></svg>
+        <b>Instagram</b><small>@rockear_tv</small><span class="go">Seguir →</span></a>
+      <a class="net" style="--c:#1877f2" href="https://www.facebook.com/ernesto.ocampo.52" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+        <b>Facebook</b><small>Ernesto Ocampo</small><span class="go">Seguir →</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="produce">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">03 —</div>
+      <div>
+        <h2 class="line"><span>Rockeart<em>.produce</em></span></h2>
+        <p class="lead rv d1">La productora desde la que se crea y produce ROCKEAR TV, y desde donde nacen nuevos eventos y producciones.</p>
+      </div>
+    </div>
+    <div class="split">
+      <div class="showcase rv"><img src="assets/logo-rockeart-produce.webp" alt="Logo de Rockeart.produce" width="850" height="566" loading="lazy"></div>
+      <div class="rv d1">
+        <ul class="marks">
+          <li>Productora creada por <strong>Ernesto Daniel Ocampo</strong>.</li>
+          <li>Producción integral de contenidos audiovisuales para ROCKEAR TV.</li>
+          <li>Desarrollo de eventos, fechas y producciones en vivo.</li>
+          <li>Archivo de producciones: cada fecha, lugar, fotografía y video, con información confirmada.</li>
+        </ul>
+        <a class="btn red" href="https://www.instagram.com/rockeart.produce/" target="_blank" rel="noopener"><span>Instagram Rockeart.produce</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fechas">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">04 —</div>
+      <div>
+        <h2 class="line"><span>Próximas <em>fechas</em></span></h2>
+        <p class="lead rv d1">Este espacio queda preparado para anunciar nuevas fechas y producciones.</p>
+      </div>
+    </div>
+    <div class="rows rv d1">
+      <div class="row">
+        <span class="when">-- / --</span>
+        <span><span class="what">A confirmar</span><span class="where">Nuevas fechas, shows y producciones de Rockeart.produce.</span></span>
+        <span class="tag">Próximamente</span>
+      </div>
+      <div class="row">
+        <span class="when">Archivo</span>
+        <span><span class="what">Producciones realizadas</span><span class="where">Cada fecha, lugar, evento, fotografías y videos, respetando la información confirmada.</span></span>
+        <span class="tag">En armado</span>
+      </div>
+    </div>
+    <div class="notice rv d2">
+      <b>Se anuncia acá primero</b>
+      <p>Seguinos en las redes para enterarte antes que nadie.</p>
+      <a class="btn" href="https://www.instagram.com/rockear_tv/" target="_blank" rel="noopener"><span>Seguir la agenda</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="libro">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">05 —</div>
+      <div><h2 class="line"><span>La música, <em>mi religión</em></span></h2></div>
+    </div>
+    <div class="book">
+      <div class="cover rv">
+        <span class="a">Ernesto D. Ocampo</span>
+        <span class="t">La música,<br>mi religión</span>
+        <span class="g">Autobiografía</span>
+      </div>
+      <div class="rv d1">
+        <blockquote>Una historia atravesada por la música, los recuerdos y las experiencias que fueron marcando el camino.</blockquote>
+        <p>Obra autobiográfica de Ernesto Daniel Ocampo: un relato personal, escrito desde la memoria y desde la pasión por la música.</p>
+        <p><strong>El resto de la historia todavía está por ser contada.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="creador">
+  <div class="wrap">
+    <div class="head">
+      <div class="num rv">06 —</div>
+      <div><h2 class="line"><span>El <span class="out">creador</span></span></h2></div>
+    </div>
+    <div class="creator">
+      <div class="shot rv">
+        <img src="assets/ernesto-ocampo.webp" alt="Ernesto Daniel Ocampo" width="720" height="900" loading="lazy">
+      </div>
+      <div class="bio rv d1">
+        <span class="role">Creador y fundador</span>
+        <h3>Ernesto Daniel<br>Ocampo</h3>
+        <p>Creador y fundador de <strong>ROCKEAR TV</strong> y de <strong>Rockeart.produce</strong>. Idea, dirección y conducción del proyecto: las entrevistas, las producciones y cada decisión detrás de lo que sale al aire.</p>
+        <p>Autor de <strong>«La música, mi religión»</strong>, su obra autobiográfica.</p>
+        <div class="duo">
+          <div class="who"><b>Rockear TV</b><span>El medio: entrevistas, música en vivo y contenido original.</span></div>
+          <div class="who"><b>Rockeart.produce</b><span>La productora que produce ROCKEAR TV y desarrolla los eventos.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact rv">
+      <h2>¿Tenés una historia <em>para contar?</em></h2>
+      <p class="lead">Entrevistas, artistas, bandas, eventos y producciones. Escribinos y armamos algo juntos.</p>
+      <div class="ways">
+        <a class="way" href="mailto:rockeart.produce@gmail.com"><span>Mail</span><b>rockeart.produce@gmail.com</b></a>
+        <a class="way" href="https://wa.me/5591173681292" target="_blank" rel="noopener"><span>WhatsApp</span><b>+55 9117 368 1292</b></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="legal" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div class="num rv">07 —</div><div><h2 class="line" style="font-size:clamp(28px,4vw,46px)"><span>Aviso legal</span></h2></div></div>
+    <div class="rv d1">
+      <details>
+        <summary>Propiedad intelectual y derechos de autor</summary>
+        <div class="in"><p><strong>ROCKEAR TV y ROCKEART.PRODUCE son proyectos creados por Ernesto Daniel Ocampo.</strong> El contenido, identidad visual, textos, materiales audiovisuales, fotografías, logotipos y demás elementos publicados en este sitio se encuentran protegidos por la legislación aplicable sobre propiedad intelectual y derechos de autor.</p></div>
+      </details>
+      <details>
+        <summary>Uso no autorizado</summary>
+        <div class="in"><p>Queda prohibida la reproducción, modificación, distribución, utilización comercial o apropiación de contenidos de este sitio sin la autorización correspondiente. Cualquier uso no autorizado o infracción de derechos podrá dar lugar a las acciones legales y/o administrativas que correspondan conforme a la legislación vigente.</p></div>
+      </details>
+      <details>
+        <summary>Control administrativo</summary>
+        <div class="in"><p>El control y la administración del sitio corresponden exclusivamente a <strong>Ernesto Daniel Ocampo</strong>. No se autoriza a terceros a administrar, modificar o publicar contenido en nombre de este sitio sin autorización expresa.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand"><img src="assets/emblema-rockear-tv-sm.webp" alt="" width="420" height="420"><b>ROCKEAR TV</b></div>
+        <p>Rock, entrevistas, música y comunicación. Creado por Ernesto Daniel Ocampo · Producido por Rockeart.produce.</p>
+      </div>
+      <div>
+        <h4>Secciones</h4>
+        <a class="fl" href="#medio">El medio</a>
+        <a class="fl" href="#medios">Medios</a>
+        <a class="fl" href="#produce">Rockeart.produce</a>
+        <a class="fl" href="#fechas">Fechas</a>
+        <a class="fl" href="#libro">El libro</a>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <a class="fl" href="https://youtube.com/@rockear_tv" target="_blank" rel="noopener">YouTube</a>
+        <a class="fl" href="https://www.tiktok.com/@rockear_tv" target="_blank" rel="noopener">TikTok</a>
+        <a class="fl" href="https://www.instagram.com/rockear_tv/" target="_blank" rel="noopener">Instagram</a>
+        <a class="fl" href="https://www.facebook.com/ernesto.ocampo.52" target="_blank" rel="noopener">Facebook</a>
+        <a class="fl" href="https://www.instagram.com/rockeart.produce/" target="_blank" rel="noopener">Rockeart.produce</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a class="fl" href="mailto:rockeart.produce@gmail.com">rockeart.produce@gmail.com</a>
+        <a class="fl" href="https://wa.me/5591173681292" target="_blank" rel="noopener">WhatsApp +55 9117 368 1292</a>
+      </div>
+    </div>
+    <div class="fmark" aria-hidden="true">Rockear TV</div>
+  </div>
+  <div class="copy"><div class="wrap" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;width:100%">
+    <span>© <span id="year">2026</span> Ernesto Daniel Ocampo · Rockeart.produce</span>
+    <span>Todos los derechos reservados</span>
+  </div></div>
+</footer>
+
+<button id="top" aria-label="Volver arriba">↑</button>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Person","@id":"https://ernestoocampo.github.io/ROCKEAR_TV/new/#persona","name":"Ernesto Daniel Ocampo","description":"Creador y fundador de ROCKEAR TV y Rockeart.produce.","image":"https://ernestoocampo.github.io/ROCKEAR_TV/new/assets/ernesto-ocampo.webp","jobTitle":"Creador y conductor","url":"https://ernestoocampo.github.io/ROCKEAR_TV/new/","sameAs":["https://www.instagram.com/ernesto.d.ocampo/","https://www.facebook.com/ernesto.ocampo.52"]},
+{"@type":"Organization","name":"ROCKEAR TV","url":"https://ernestoocampo.github.io/ROCKEAR_TV/new/","logo":"https://ernestoocampo.github.io/ROCKEAR_TV/new/assets/emblema-rockear-tv.webp","founder":{"@id":"https://ernestoocampo.github.io/ROCKEAR_TV/new/#persona"},"email":"rockeart.produce@gmail.com","sameAs":["https://youtube.com/@rockear_tv","https://www.tiktok.com/@rockear_tv","https://www.instagram.com/rockear_tv/","https://www.facebook.com/ernesto.ocampo.52","https://www.instagram.com/rockeart.produce/"]},
+{"@type":"Organization","name":"Rockeart.produce","description":"Productora creada por Ernesto Daniel Ocampo, responsable de producir ROCKEAR TV.","founder":{"@id":"https://ernestoocampo.github.io/ROCKEAR_TV/new/#persona"},"sameAs":["https://www.instagram.com/rockeart.produce/"]}
+]}
+</script>
+
+<script>
+(function(){
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    document.documentElement.classList.add('ready');
+  })});
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ecualizador del hero */
+  var eq=document.getElementById('eq');
+  if(eq){
+    var n=window.innerWidth<760?22:38,html='';
+    for(var i=0;i<n;i++){
+      var h=14+Math.round(Math.abs(Math.sin(i*.5))*34+Math.random()*16);
+      html+='<i style="--h:'+h+'%;animation-duration:'+(2.6+Math.random()*2.2).toFixed(2)+
+            's;animation-delay:-'+(Math.random()*4).toFixed(2)+'s"></i>';
+    }
+    eq.innerHTML=html;
+  }
+
+  /* header, progreso, boton subir */
+  var hdr=document.getElementById('hdr'),bar=document.getElementById('bar'),top=document.getElementById('top'),tick=false;
+  function onScroll(){
+    var y=window.scrollY,max=document.documentElement.scrollHeight-innerHeight;
+    hdr.classList.toggle('on',y>40);
+    bar.style.width=(max>0?y/max*100:0)+'%';
+    top.classList.toggle('show',y>innerHeight);
+    tick=false;
+  }
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+  onScroll();
+  top.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'})});
+
+  /* menu mobile */
+  var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    burger.setAttribute('aria-expanded',nav.classList.toggle('open'));
+  });
+  nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+    nav.classList.remove('open');burger.setAttribute('aria-expanded','false');
+  })});
+
+  /* reveal al entrar en pantalla */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv,.line').forEach(function(el){io.observe(el)});
+
+  /* seccion activa en el nav */
+  var links=[].slice.call(nav.querySelectorAll('a')),
+      secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id)});
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){spy.observe(s)});
+
+  /* halo que sigue al mouse */
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    var glow=document.getElementById('glow'),gx=0,gy=0,tx=0,ty=0,on=false;
+    addEventListener('pointermove',function(e){
+      tx=e.clientX;ty=e.clientY;
+      if(!on){on=true;glow.style.opacity=1}
+    },{passive:true});
+    (function loop(){
+      gx+=(tx-gx)*.08;gy+=(ty-gy)*.08;
+      glow.style.transform='translate('+gx+'px,'+gy+'px)';
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* parallax suave del emblema */
+  if(!reduce){
+    var em=document.querySelector('.emblem');
+    addEventListener('scroll',function(){
+      var y=Math.min(window.scrollY,900);
+      em.style.transform='translateY('+(y*.14)+'px) scale('+(1-y*.00008)+')';
+      em.style.opacity=Math.max(0,1-y/760);
+    },{passive:true});
+  }
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
