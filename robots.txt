@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ernestoocampo.github.io/ROCKEAR_TV/sitemap.xml

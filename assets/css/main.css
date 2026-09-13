@@ -471,3 +471,5 @@ a.cel:hover::before{transform:rotate(45deg) translate(3px,-3px);border-color:var
   .tvset::before,.tv-glow,.tv-scan,.tv-flick,.tv-static,.tv-roll{animation:none}
   .tv-glow{opacity:.92}.tv-roll,.tv-flick{opacity:0}
 }
+.sp-note a{color:var(--muted);transition:color .25s}
+.sp-note a:hover{color:var(--red)}

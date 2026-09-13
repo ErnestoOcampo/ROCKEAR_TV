@@ -5,7 +5,7 @@ Cambiar el header, el footer o el <head> aca y regenerar mantiene las 9 paginas
 sincronizadas sin tener que editarlas una por una."""
 import os, re, datetime
 
-SITE = "https://ernestoocampo.github.io/ROCKEAR_TV/new/"
+SITE = "https://ernestoocampo.github.io/ROCKEAR_TV/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARTS = os.path.join(ROOT, "_build", "parts")
 
@@ -41,7 +41,7 @@ def head(page):
 <title>{page["title"]}</title>
 <meta name="description" content="{page["desc"]}">
 <meta name="author" content="Ernesto Daniel Ocampo">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#050505">
 <link rel="canonical" href="{SITE}{page["url"]}">
 <meta property="og:title" content="{page["title"]}">
@@ -260,13 +260,23 @@ def home_body(b):
       </div>
     </div>
 {redes}'''
+    sp = clean("sponsors", b)
+    sp = sp.replace('<p class="sp-note rv d2">¿Querés acompañar a ROCKEAR TV? Escribinos.</p>',
+                    f'<p class="sp-note rv d2"><a href="{b}sponsors/">Conocé a las marcas que nos acompañan →</a></p>')
+    sponsors = f'''    <div class="head">
+      <div>
+        <h2 class="line"><span>Nos <em>acompañan</em></span></h2>
+        <p class="lead rv d1">Las marcas que hacen posible que ROCKEAR TV siga saliendo al aire.</p>
+      </div>
+    </div>
+{sp}'''
     cta = f'''    <div class="contact rv">
       <h2>¿Tenés una historia <em>para contar?</em></h2>
       <p class="lead">Si sos artista, banda o productor y querés ser parte de la escena, escribinos.</p>
       <div class="cta" style="margin-top:34px"><a class="btn red" href="{b}contacto/"><span>Contacto</span></a></div>
     </div>
 '''
-    return hero + ticker + sec(mapa) + sec(agenda) + sec(redes) + sec(cta)
+    return hero + ticker + sec(mapa) + sec(agenda) + sec(redes) + sec(sponsors) + sec(cta)
 
 PAGES = [
   dict(url="", home=True, base="", title="ROCKEAR TV | El canal del rock en español",
