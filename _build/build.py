@@ -112,7 +112,7 @@ def footer(page):
       </div>
       <div>
         <h4>Contacto</h4>
-        <a class="fl" href="mailto:rockeart.produce@gmail.com">rockeart.produce@gmail.com</a>
+        <a class="fl" href="mailto:Rockearte.ok@gmail.com">Rockearte.ok@gmail.com</a>
         <a class="fl" href="https://wa.me/5491173681292" target="_blank" rel="noopener">WhatsApp +54 9 11 7368-1292</a>
         <a class="fl" href="{b}legal/">Aviso legal</a>
       </div>
@@ -168,7 +168,7 @@ PERSONA = {"@type":"Person","@id":SITE+"#persona","name":"Ernesto Daniel Ocampo"
 ORG = {"@type":"Organization","@id":SITE+"#org","name":"ROCKEAR TV",
   "description":"Canal de rock en español: entrevistas reales, sesiones en vivo y coberturas sin filtro. Desde Argentina al mundo.",
   "url":SITE,"logo":SITE+"assets/logo-rockear-tv.webp","founder":{"@id":SITE+"#persona"},
-  "email":"rockeart.produce@gmail.com",
+  "email":"Rockearte.ok@gmail.com",
   "sameAs":["https://youtube.com/@rockear_tv","https://www.tiktok.com/@rockear_tv",
             "https://www.instagram.com/rockear_tv/","https://www.facebook.com/ernesto.ocampo.52",
             "https://www.instagram.com/rockeart.produce/"]}
