@@ -113,7 +113,7 @@ def footer(page):
       <div>
         <h4>Contacto</h4>
         <a class="fl" href="mailto:rockeart.produce@gmail.com">rockeart.produce@gmail.com</a>
-        <a class="fl" href="https://wa.me/5591173681292" target="_blank" rel="noopener">WhatsApp +55 9117 368 1292</a>
+        <a class="fl" href="https://wa.me/5491173681292" target="_blank" rel="noopener">WhatsApp +54 9 11 7368-1292</a>
         <a class="fl" href="{b}legal/">Aviso legal</a>
       </div>
     </div>
