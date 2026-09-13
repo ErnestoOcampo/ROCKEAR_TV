@@ -1,0 +1,6 @@
+# Version en prueba: no indexar todavia.
+# Cuando reemplace al sitio actual, cambiar a: Allow: /
+User-agent: *
+Disallow: /
+
+Sitemap: https://ernestoocampo.github.io/ROCKEAR_TV/new/sitemap.xml
